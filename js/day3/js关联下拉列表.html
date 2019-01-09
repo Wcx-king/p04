@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关联下拉列表</title>
+</head>
+<body>
+    <script>
+        //创建基本内容结构
+        var title = document.createElement('lable')
+        title.innerText = '选择省份'
+        title.style.fontSize = '40px'
+        title.style.fontWeight = 'bold'
+        title.style.color = 'red'
+        document.body.appendChild(title)
+
+        //省
+        var proSelect = document.createElement('select')
+        document.body.appendChild(proSelect)
+
+        //市
+        var citySelect = document.createElement('select')
+        document.body.appendChild(citySelect)
+
+        //定义数据
+        var proData = ['河南省','河北省','湖北省']
+        var cityData = []
+        cityData.push(['郑州','南阳','焦作'])
+        cityData.push(['石家庄','邯郸'])
+        cityData.push(['武汉'])
+
+        //将数据进行绑定
+        //绑定省份
+        for(var i=0;i<proData.length;i++){
+            var opt = document.createElement('option')
+            opt.innerText = roData[i]
+            opt.value =  i
+            proSelect.appendChild(opt)
+        }
+        
+        //默认城市名称
+
+        for(var i=0;i<cityData[0].length;i++){
+            var opt = document.createElement('option')
+            opt.innerText = cityData[0][i]
+           citySelect.appendChild(opt)
+        }
+
+        //处理 用户响应
+        proSelect.onchange = function (event){
+            var opts = citySelect.children
+            //清空原有内容
+            for(var i=opts.length-1; i>=0; i--){
+                citySelect.removeChild(opts[i])
+            }
+        }
+
+        //找到选择的是第几个省
+        //console.log(event)
+        var proIndex = event.target.value
+        for(var i=0;i<cityData[proIndex].length;i++){
+            var opt = document.createElement('option')
+            opt.innerText = cityData[proIndex][i]
+           citySelect.appendChild(opt)
+        }
+    </script>
+</body>
+</html>

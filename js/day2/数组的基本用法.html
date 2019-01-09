@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Array 也是EDMAScript 常用数据类型 -->
+    <script>
+        //1.new 的方式 创建 Array
+        //var a_array = new Array();
+        var a_array =Array()//创建空数组
+        //添加元素
+        a_array[0]= 1
+        a_array[0]= 2
+        console.log(a_array,typeof a_array,typeof Array)
+
+        //通过方法添加元素
+        a_array.push(3)
+        a_array.push(4)
+
+        console.log(a_array)
+
+        //删除元素
+        a_array.pop()
+        console.log(a_array)
+        
+        //先进后出push + pop 实现
+
+        //队列思想
+        //先进先出
+        a_array.unshift(10)
+        console.log(a_array)
+
+        a_array.shift()
+        //pop()删除最后一个
+        //删除所有
+        function claerAllItems(data) {
+            if (!data || data.length ==0) {
+                //防止 传入的值是 null 或者[]
+                return false
+            }
+            for(var i = 0; i<data.length;i++){
+                data.pop()
+            }
+            return true
+        }
+
+        //数组排序
+        var b_array = [1,2,3,1,6,9]
+        //从小到大 升序
+        console.log(b_array.sort())
+        //从大到小
+        //sort() + reverse()
+        console.log(b_array.sort().reverse())
+
+        //反转 reverse() 不支持字符串
+        c_array = ['a','c','b','wcx','yy']
+        console.log(c_array.reverse())
+
+
+        //把字符串拼接成数组 concat() 与数组不会改变
+        var str_array = b_array.concat('hello','js')
+        console.log(str_array)
+
+        // splice(截取元素下标,截取元素的个数)  会破坏原数组
+        // 1。删除  截取  
+        var d_array = [1,2,3,4]
+        var e_array = d_array.splice(3)
+        console.log(d_array)
+        console.log(e_array)
+        //插入功能 splice(插入位置下标，0表示不删除，插入的数值1,数值2,.......)
+        var f_array = [1,2,3]
+       f_array.splice(1,0,4,'hello','word')
+        console.log(f_array)
+        //替换功能 splice(替换元素的下标，表示替换的长度/个数，替换的类容)
+        f_array.splice(1,1,'js')
+        console.log(f_array)
+    </script>
+ </body>
+</html>

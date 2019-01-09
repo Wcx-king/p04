@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 定时器：每隔一段指定时间，按时按点来执行一件约定的事情（函数/方法）
+    闹钟 -->
+    <script>
+        var count = 0
+        // setInterval(function(){
+        //     count++
+        //     console.log(count)
+        // },1000);
+
+        function doSomthing(){
+            count++
+            console.log(count)
+        }
+        // setInterval(doSomthing,1000)
+        //setInterval 第一个参数是调用的方法 ，第二个是间隔时间
+
+        // function doWrite(){
+        //     count++
+        //     document.body.innerHTML = ''
+        //     document.write(count)
+        // }
+        // //永久定时器
+        // setInterval(doWrite,1000)
+
+
+        //设置指定时间倒计时
+    function timeStep(time_sec){
+        function timekeepig(){
+            document.body.innerText= ''
+            document.body.innerText= time_sec
+            time_sec--
+            if (time_sec < 0){
+                //停止计时器
+                clearInterval(timer)
+                document.body.innerText= ''
+                document.body.innerText= '倒计时结束'
+            }
+        }
+       var timer = setInterval(timekeepig,1000)
+    }
+    timeStep(10)
+
+
+    //需求 只执行一次的定时任务
+    function exec_once(){
+        document.body.innerText= ''
+        document.body.innerText= '五秒之后清屏'
+    }
+    setTimeout(exec_once,1000)
+
+    function exec_clear(){
+        document.body.innerText= ''
+        document.body.innerText= '清屏成功'
+    }
+    setTimeout(exec_clear,5000)
+
+    </script>
+
+    
+</body>
+</html>

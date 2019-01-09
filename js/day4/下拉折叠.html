@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,div,ul,li{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .menus>ul>li>ul{
+            display: none;
+        }
+        .menus>ul>li>ul>li>ul{
+            display: none;
+        }
+        .active{
+            background-color: brown;
+            color:#566464;
+        }
+    </style>
+</head>
+<body>
+    <div class="menus">
+        <ul>
+            <li>
+                河南省
+                <ul>
+                    <li>郑州市
+                        <ul>
+                            <li>金水区</li>
+                            <li>中原区</li>
+                            <li>二七区</li>
+                        </ul>
+                    </li>
+                    <li>
+                        新乡市
+                        <ul>
+                            <li>12区</li>
+                            <li>34区</li>
+                            <li>56区</li>
+                        </ul>
+                    </li>
+                    <li>开封市
+                        <ul>
+                            <li>12区</li>
+                            <li>34区</li>
+                            <li>56区</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                河北省
+                <ul>
+                    <li>石家庄
+                        <ul>
+                            <li>12区</li>
+                            <li>34区</li>
+                            <li>56区</li>
+                        </ul>
+                    </li>
+                    <li>保定市
+                            <ul>
+                                <li>12区</li>
+                                <li>34区</li>
+                                <li>56区</li>
+                            </ul>
+                    </li>
+                    <li>唐山市
+                        <ul>
+                            <li>12区</li>
+                            <li>34区</li>
+                            <li>56区</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+</body>
+<script>
+    var li_el = document.querySelectorAll('.menus>ul>li')
+    var ul_el = document.querySelectorAll('.menus>ul>li>ul')
+    for(var i = 0;i<li_el.length;i++){
+        var item = li_el[i]
+        item.index = i
+        item.onclick = function(){
+            console.log(this)
+
+            // for(var j=0;j<li_el.length;j++){
+            //     li_el[j].className = ''
+            //     ul_el[j].style.display = 'none'
+            // }
+            // this.className = 'active'
+            // ul_el[this.index].style.display = 'block'
+            // prompt('qing')
+
+            var flag = this.querySelector('ul').style.display
+            if ( flag == ''){
+                flag = 'block'
+            }else if( flag == 'none' ){
+                flag = 'block'
+            }else if( flag == 'block' ){
+                flag = 'none'}
+            this.querySelector('ul').style.display = flag
+            
+          
+        }
+    }
+    var three_li = document.querySelectorAll('.menus > ul > li > ul > li')
+    for(var i = 0 ; i < three_li.length ; i++){     
+        var item = three_li[i]
+        item.index = i
+        item.onclick = function (ev) {
+            // console.log('......',this)
+            var oEvent = ev || event;
+            //js阻止事件冒泡
+            oEvent.cancelBubble = true;
+            oEvent.stopPropagation();
+            //js阻止链接默认行为，没有停止冒泡
+            // oEvent.preventDefault(); 
+            // return false;
+       }
+    }
+    
+</script>
+</html>

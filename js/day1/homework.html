@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            display: flex;
+            /* 平均分配水平剧中 */
+            justify-content: space-around; 
+            /* 垂直 */
+            align-items: center;
+        
+            }
+        div{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+        <div>1151599</div>
+    <!-- 
+1.怎么让一个不定宽的div，垂直水平居中
+
+2.position 属性以及作用
+static:
+ fixed:绝对定位
+ relative：元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留
+ absolute:从文档流完全删除，并相对于其父级定位。
+3.浮动与清除浮动
+
+
+4.什么是BFC？哪些元素会生成BFC？
+BFC(Block formatting context)直译为”块级格式化上下文”。它是一个独立的渲染区域，只有Block-level box参与，
+它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
+BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+1，根元素
+2，float属性不为none
+3，position为absolute或fixed
+4，display为inline-block, table-cell, table-caption, flex, inline-flex
+5，overflow不为visible
+
+
+5.box-sizing是什么？在什么场景使用？
+改变盒模型中宽度和高度的定义范围
+当需要以content + padding + border为整体的时候使用border-box
+box-sizing: content-box|border-box|inherit;
+
+
+6.px\em\rem的区别？
+PX
+px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的
+EM
+em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
+EM特点
+1. em的值并不是固定的；
+2. em会继承父级元素的字体大小。
+对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 。
+对于需要适配各种移动设备，使用rem
+
+7.CSS的引入方式有哪些？link 和 @import区别?
+1.内联方式
+内联方式指的是直接在 HTML 标签中的 style 属性中添加 CSS。
+2.嵌入方式
+嵌入方式指的是在 HTML 头部中的 <style> 标签下书写 CSS 代码。
+3.链接方式
+链接方式指的是使用 HTML 头部的 <head> 标签引入外部的 CSS 文件。link
+4.导入方式
+导入方式指的是使用 CSS 规则引入外部 CSS 文件。
+<style>
+    @import url(style.css);
+</style>
+
+　区别1：link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。
+　区别2：link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。
+　区别3：link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。
+　区别4：ink支持使用Javascript控制DOM去改变样式；而@import不支持。
+
+8.流式布局和响应式布局的区别
+9.渐进增强和优雅降级
+10.CSS隐藏元素的几种方式以及区别
+opacity 透明
+visibility 将它的值设为hidden将隐藏我们的元素。如同opacity属性，被隐藏的元素依然会对我们的网页布局起作用。
+与opacity唯一不同的是它不会响应任何用户交互。此外元素在读屏软件中会被隐藏
+dispalydisplay属性依照词义真正隐藏元素。将display属性设为none确保元素不可见并且连盒模型也不生成。
+使用这个属性，被隐藏的元素不占据任何空间。
+position
+11.判断一个年份是否是闰年，并输出2000年到3000年之间的闰年（）
+function find_years(){ // 输出 所有的闰年 // 返回一个数组}
+function check_years(year){ // 是否是闰年 // boolean}
+ -->
+
+
+ <script>
+
+     function find_years(){
+         var i=[]
+         for (var year=2000;year<=3000;year++){
+             if (year%4===0 && year%100!=0 | year%400===0){
+                i.push(year)
+             }
+         } 
+         console.log(i)
+     }
+     find_years()
+
+
+     function find_year(list){
+        for (var year=2000;year<=3000;year++){
+             if (year%4===0 && year%100!=0 || year%400===0){
+                 list.push(year) 
+             }
+         } 
+         console.log(list)
+     }
+     find_year([])
+
+
+     function check_years(year){
+         if (year%4===0 && year%100!=0 || year%400===0){
+             console.log(true)
+             }else{
+                 console.log(false)
+             }
+     }
+     check_years(2019)
+ </script>
+ 
+</body>
+</html>--

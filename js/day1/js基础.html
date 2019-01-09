@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+<body>
+    <script>
+        //学习一般语言的规制都是 变量 函数 常量 面向对象 API 的各种操作
+        //变量
+        //变量 ：在程序运行期间 其值可变的量 就是变量
+        //从字面来看 变量就是可变的量
+    
+        //JS 中如何使用变量
+        //变量要先声明 在赋值 并且 变量可以从新赋值
+        //变量声明关键字 var
+
+        var age = 18;
+        console.log(typeof age)
+        var money = 100.9;
+        console.log(typeof money)
+        var name = 'wuwuw ';
+        console.log(typeof name)
+        /*
+        变量名的命名方式常用的有两种：匈牙利命名  和 驼峰命名法
+        匈牙利命名法：开头字母用变量类型的缩写，其余部分用变量的英文或者英文缩写
+        要求单词的第一个字母大写
+        var iMyAge = 18;
+                */
+        var first_name = '赵';
+        var list_name = '云';
+        // 字符拼接  遇见字符串就会被感染
+        var total_name = first_name + list_name + 10000;
+        console.log(total_name)
+
+        var value = 1+1+1+1;  4
+        value = 1 + 1 + '1' + 1;211
+
+        //js 语言 的倾述对象是浏览器
+        //存储环境是 内存
+        var sex = '+'  
+        var bool_val = true;
+        var null_val = null;
+
+
+        //JS 语句
+        //1， if
+        if (true) {
+            console.log('True')
+        }
+        // { } 作用域 用来表示这是一个代码块
+        //作用域是用来指定 代码执行的 范围
+        console.log(aName)//变量提升
+
+        var aName = 'WuChangXin';
+        if (true) {
+            console.log(aName)
+            var aName = 'Rsoe';
+            console.log(aName)
+        }else{
+            console.log('False')
+        }
+        console.log(aName)
+
+
+        //判断年龄
+        var iage = 18;
+        if (iage < 18) {
+            console.log('未成年')
+        }else if ( iage = 18 && iage <= 30){
+            console.log('青壮年')
+        }else if ( iage > 30 && iage <= 65){
+            console.log('壮年')
+        }else if ( iage > 65 && iage < 80){
+            console.log('退休')
+        }else{
+            console.log('马克思')
+            if (iage === 100) {
+                //===表示恒等  ==表示约等
+                console.log('百岁老人')
+            }
+        }
+
+
+        var sName = 'Tom'
+        switch (sName) {
+            case 'Tom':
+                console.log('Tom')
+                break;
+        
+            default:
+            console.log('如果条件都不满足则执行 default')
+                break;
+        }
+
+
+        //for循环
+        //
+        var a = 1;
+         a = a + 1;
+        a += 1//自增1
+        // ++ 相当于 a += 1
+
+        a++;//真正的 自增1
+
+        for (var i=0; i<10;i++){
+            console.log(i)
+        }
+        /*
+        1.var i = 0; i<10 满足就执行 {执行体}
+        2.i++ ; i < 10 满足执行 {执行体}
+        */
+
+        //JS中常用的 数据类型 数组 相当于Python中的list
+        var days = [1,2,3,4,5,6];
+        console.log(typeof days)
+        //objact '一切皆对象'
+
+        for (var i = 0; i<days.length;i++){
+            console.log(i,days[i])
+        }
+        //倒叙
+        for (var i = days.length - 1; i >= 0;i--){
+            console.log(i,days[i])
+        }
+
+        //专题 ++ --
+        var aNumber = 1;
+        var bNumber = aNumber++;
+        console.log(aNumber,bNumber)
+        //如果 j = i++;如果 i在前 ++ 在后 ，程序会对i 先使用 在自增    反之先自增后使用
+
+        //函数 
+
+        function aFunc(){
+            //在函数体李 使用var 定义变量 才是真正的局部变量
+            
+            var a_value = 100;
+            console.log(a_value)
+
+        }
+        aFunc();
+        //有参有返回值
+        function sum(a,b){
+            return a+b;
+        }
+    </script>
+</body>
+</html>

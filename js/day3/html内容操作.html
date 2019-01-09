@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTMLl  安全操做/ -->
+    <div id="show"></div>
+<script>
+    //必须有个 抽象文档的对象 document
+    var show = document.getElementById('show') 
+    console.log(show)
+    console.log(typeof show)
+    console.log(typeof document)
+    //给只制定的元素添加类容
+
+    //只添加文字
+    show.innerHTML= '<h1 style= "color:red;">这是标题</h1>'
+    //修改样式
+    show.style.backgroundColor='balck';
+    show.style.textAlign='center';
+</script>
+<div class="show"></div>
+
+<script>
+    var div_show = document.getElementsByClassName('show')
+    console.log(div_show)
+    //动态添加 元素
+    var new_el = document.createElement('p')
+    new_el.innerHTML = '这是一个段落'
+    new_el.style.color='#ff0000'
+    new_el.style.backgroundColor = '#000'
+    //将新建标签添加到指定的元素中
+    div_show[0].appendChild(new_el)
+    //ul li
+   var ul_element = document.createElement('ul')
+   for(var i = 0;i < 4; i++ ){
+       var li = document.createElement('li')
+       li.innerText=i
+       li.style.height = '50px'
+       li.style.lineHeight = '50px'
+       ul_element.appendChild(li)
+   }
+   div_show[0].appendChild(ul_element)
+
+   //获取页面所有的div
+   var all_div = document.getElementsByTagName('div')
+   console.log(all_div)
+</script>
+
+<script>
+    //现在选择器的流行写法
+    //querySelector 选择器名称 只会找到一个
+    var el_id = document.querySelector('#show')
+    console.log(el_id)
+    //
+    var el_cl = document.querySelectorAll('div.show')
+    console.log(el_cl)
+    el_class = document.querySelectorAll('div.show>ul>li:nth-child(1)')
+    console.log(el_class)
+</script>
+</body>
+</html>

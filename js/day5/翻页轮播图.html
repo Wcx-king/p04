@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+     <div id="scroll">    
+        <!-- //scroll滑动 -->
+        <img src="./img/1.jpg" alt="第一" title="4545">
+        <img src="./img/2.jpg" alt="第二">
+        <img src="./img/3.jpg" alt="第三">
+        <img src="./img/4.jpg" alt="第四">
+        <img src="./img/1.jpg" alt="第一" title="4545">
+    </div>
+</body>
+</html>
+<script>
+    //1 获取滚动区域的宽度
+    var scroll = document.querySelector('#scroll')
+    var s_w = scroll.clientWidth
+    //2 排列轮播图的位置
+    var imgs = scroll.querySelectorAll('img')
+    for(var index = 0;index < imgs.length ; index++){
+        imgs[index].style.left = index * s_w + 'px'
+    }
+    //实现 左右按钮
+    var l_btn = document.createElement('div')
+    l_btn.innerText = "《"
+    l_btn.className = "arrow left"
+    scroll.appendChild(l_btn)
+
+    var r_btn = document.createElement('div')
+    r_btn.innerText = "》"
+    r_btn.className = "arrow1 right"
+    scroll.appendChild(r_btn)
+
+    //实现左右响应事件
+    l_btn.onclick = function(){
+        moveLeft()
+    }
+
+     r_btn.onclick = function(){
+        moveRight()
+    }
+
+    //左移动 
+    function moveLeft(){
+        page++
+        if(page>imgs.length){
+            page.imgs.length
+        }
+        move()
+    }
+    //右移动
+    function moveRight(){
+        page--
+        if(page<1){
+            page.imgs.length
+        }
+        move()
+    }
+    //移动
+    function move(){
+        for (var index = 0; index < imgs.length ; index++){
+            imgs[index].style.left = (index - page)*s_w + 'px'
+        }
+    }
+    //声明全局变量 记录 页码
+    var page = 0
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- js 是面向对象语言
+    面向对象语言的三大特性 封装继承多态
+
+    什么是类  类就是具有相同属性方法的集合
+    什么是对象  对象就是类的实例化 
+
+    在JS中对象其实就是一种类型  Object  
+    创建一个 Object  对象类型有两种方法
+    1，使用 new关键字
+    2，使用字面量表示法  
+
+
+    对象的作用
+    1，对数据额存储和读取
+    2，将数据和功能组织在一起
+
+     -->
+     <script>
+         //使用new创建一个对象
+         var obj = new Object();
+         obj.name = 'wcx';
+         obj.age = 18;
+         obj.marry = false;
+         obj.house = null;
+         console.log(obj)
+         //new关键字可以省略
+         obj = Object();
+         obj.thinking = function (param){
+             console.log('人会思考',param)
+         }
+         obj.thinking('ben')
+
+        //  3.字面量创建对像
+        //{}
+        obj = {
+            'name':'wcx',
+            age:18,
+            running:function(){
+                console.log('fafafafaf')
+            }
+        }
+
+        // 在早些时候 JS 是通过函数来创建对象的 因为现在使用的是ESS的标准
+        //ESS是没有 class关键字
+        //通过函数来伪装一个类
+        // function Student(){
+        //     this.name = '张三'
+        //     this.age = 18
+        //     this.eat = function (foods){
+        //     }
+        //     this.info  = function(){
+        //         return this.name + '' + this.age
+        //     }
+        // }
+        // var a_stu = new Student()
+        // console.log(a_stu)
+
+
+        function Student1(name,age){
+            this.name = name
+            this.age = age
+            this.eat = function (foods){
+            }
+            this.info  = function(){
+                return this.name + '' + this.age
+            }
+            console.log(this)
+        }
+        Student1('wc',18)
+     </script>
+
+</body>
+</html>
